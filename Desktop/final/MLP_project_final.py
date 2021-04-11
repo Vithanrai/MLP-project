@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import linear_model
-import statsmodels.api as sm
 
 df = pd.read_csv('housing.csv')
 
@@ -82,11 +81,4 @@ New_LSTAT = int(input('enter the percentage of lower status of population\n'))
 temp = regr.predict([[New_RM, New_PTRATIO, New_LSTAT]])
 print('Predicted House Price: $',int(temp))
 
-x = sm.add_constant(x)  # adding a constant
-
-model = sm.OLS(y, x).fit()
-predictions = model.predict(x)
-
-print_model = model.summary()
-print(print_model)
 # print(df)
